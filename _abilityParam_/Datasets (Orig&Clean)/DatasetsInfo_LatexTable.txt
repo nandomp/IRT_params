@@ -1,0 +1,35 @@
+% latex table generated in R 3.2.3 by xtable 1.8-2 package
+% Tue Apr 12 09:47:20 2016
+\begin{table}[ht]
+\centering
+\begingroup\tiny
+\begin{tabular}{rlrrl}
+  \hline
+ & dataset & NumInst & NumAtt & ClassProportion \\ 
+  \hline
+1 & Chocardiogram (clean).csv &  112 &   11 & 2 Labels (78.6\%,21.4\%) \\ 
+  2 & Chocardiogram.csv &  131 &   11 & 2 Labels (67.2\%,32.8\%) \\ 
+  3 & Heart-statlog (clean).csv &  230 &   14 & 2 Labels (43\%,57\%) \\ 
+  4 & Heart-statlog.csv &  270 &   14 & 2 Labels (44.4\%,55.6\%) \\ 
+  5 & Hepatitis (clean).csv &  124 &   20 & 2 Labels (90.3\%,9.7\%) \\ 
+  6 & Hepatitis.csv &  155 &   20 & 2 Labels (79.4\%,20.6\%) \\ 
+  7 & Ionosphere (clean).csv &  323 &   34 & 2 Labels (65.3\%,34.7\%) \\ 
+  8 & Ionosphere.csv &  351 &   34 & 2 Labels (64.1\%,35.9\%) \\ 
+  9 & Lymphography (clean).csv &  127 &   19 & 3 Labels (41.7\%,55.9\%,2.4\%) \\ 
+  10 & Lymphography.csv &  148 &   19 & 4 Labels (41.2\%,54.7\%,2.7\%,1.4\%) \\ 
+  11 & Parkinsons (clean).csv &  173 &   23 & 2 Labels (82.7\%,17.3\%) \\ 
+  12 & Parkinsons.csv &  195 &   23 & 2 Labels (75.4\%,24.6\%) \\ 
+  13 & Seeds (clean).csv &  197 &    8 & 3 Labels (32\%,35\%,33\%) \\ 
+  14 & Seeds.csv &  210 &    8 & 3 Labels (33.3\%,33.3\%,33.3\%) \\ 
+  15 & Statlog-heart-B (clean).csv &  229 &   14 & 2 Labels (42.4\%,57.6\%) \\ 
+  16 & Statlog-heart-B.csv &  270 &   14 & 2 Labels (44.4\%,55.6\%) \\ 
+  17 & Teaching (clean).csv &  107 &    6 & 3 Labels (35.5\%,35.5\%,29\%) \\ 
+  18 & Teaching.csv &  151 &    6 & 3 Labels (34.4\%,33.1\%,32.5\%) \\ 
+  19 & Vertebral-column (clean).csv &  271 &    7 & 3 Labels (16.6\%,53.1\%,30.3\%) \\ 
+  20 & Vertebral-column.csv &  310 &    7 & 3 Labels (19.4\%,48.4\%,32.3\%) \\ 
+   \hline
+\end{tabular}
+\endgroup
+\caption{Caption text} 
+\end{table}
+\end{document}

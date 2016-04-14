@@ -1,0 +1,4 @@
+Noisy instances (11_statlog-heart_2_clean): 48 81 157
+Noisy instances (20_seeds_3_clean): 128 131
+Noisy instances (21_teaching_3_clean): 23 33 53 67 70 73 76 79 80 83 85 89 92 96 97 98 99 101 104 105 106 107
+Noisy instances (22_vertebral-column_3_clean): 3 5 6 19 31 32 217 257
