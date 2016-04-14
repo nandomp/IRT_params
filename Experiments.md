@@ -12,20 +12,20 @@
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/chocardiogram_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/chocardiogram_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_plotAllAcc.pdf) 
 
 #### Clean DS 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Chocarciogram/chocardiogram_2_clean_plotAllAcc.pdf) 
 
 
 
@@ -40,20 +40,20 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/11_statlog-heart_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/11_statlog-heart_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_plotAllAcc.pdf) 
 
 #### Clean DS 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Heart-statlog/heart-statlog_clean_plotAllAcc.pdf) 
 
 
 
@@ -68,21 +68,21 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/06_hepatitis_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/06_hepatitis_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_plotAllAcc.pdf) 
 
 #### Clean DS 
 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/hepatitis/06_hepatitis_2_clean_plotAllAcc.pdf) 
 
 
 
@@ -99,20 +99,20 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/ionosphere_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/ionosphere_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
  
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_plotAllAcc.pdf) 
 
 #### Clean DS 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Ionosphere/ionosphere_clean_plotAllAcc.pdf) 
 
 
 
@@ -128,20 +128,20 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/08_parkinsons_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/08_parkinsons_2_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_plotAllAcc.pdf) 
 
 #### Clean DS 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Parkinsons/08_parkinsons_2_clean_plotAllAcc.pdf) 
 
 
 
@@ -159,19 +159,19 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/20_seeds_3_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/20_seeds_3_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_plotAllAcc.pdf) 
 
 #### Clean DS 
 
-Dateset without noisy instances (instances with negative discrimination parameter)![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_clean_plotAll.pdf)
+Dateset without noisy instances (instances with negative discrimination parameter)![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Seeds/20_seeds_3_clean_plotAllAcc.pdf) 
 
 
 
@@ -186,20 +186,20 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/21_teaching_3_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/21_teaching_3_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_plotAllAcc.pdf) 
 
 #### Clean DS 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Teaching/21_teaching_3_clean_plotAllAcc.pdf) 
 
 
 
@@ -216,20 +216,20 @@ Dateset without noisy instances (instances with negative discrimination paramete
 #### Noise Visualizacion
 
 Two first principal components visualizacion. Different colors indicate different classes. Crosses indicate those instances with a negative discrimination (estimated 3PL model parameter).
-<img src="_Toy_/Results (Orig&Clean DS)/22_vertebral-column_3_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
+<img src="_abilityParam_/Results (Orig&Clean DS)/22_vertebral-column_3_noise_PCA.pdf.png" alt="Noise Visualization" width="640" />
 
 #### Original DS
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_plotAll.pdf) 
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_plotAll.pdf) 
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_plotAllAcc.pdf) 
 
 #### Clean DS 
 Dateset without noisy instances (instances with negative discrimination parameter)
 
-![Ability, Avg Prob of Success and Accuracy per Method](_Toy_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_clean_plotAll.pdf)
+![Ability, Avg Prob of Success and Accuracy per Method](_abilityParam_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_clean_plotAll.pdf)
 
-![Ability and  Avg Prob of Success per Accuracy](_Toy_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_clean_plotAllAcc.pdf) 
+![Ability and  Avg Prob of Success per Accuracy](_abilityParam_/Results \(Orig&Clean DS\)/Vertebral-column/22_vertebral-column_3_clean_plotAllAcc.pdf) 
 
 
 
