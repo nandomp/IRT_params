@@ -1,5 +1,6 @@
-# Making sense of item response theory in machine learning (Expermiments & Code) [UPDATING...]
-&#x1F535;&#x1F535;&#x1F535;&#x1F535;
+# &#x1F535; Making sense of item response theory in machine learning &#x1F535;
+## (Expermiments & Code) [UPDATING...]
+<center> <h1>heading 1</h1> </center>
 <p style='color:red'>This is some red text.</p>
 
 ## Important code files:
