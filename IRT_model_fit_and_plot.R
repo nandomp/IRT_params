@@ -255,9 +255,9 @@ plot_ICC_ECAI <- function(all_models,results,all_abilities,ind_dataset,ind_insta
   abil = all_abilities[ind_dataset,]
   resp = results[[ind_dataset]][ind_instance,]#resp = results[[ind_dataset]][ind_instance,]
   
-  plot(fit,items=ind_instance,xlim=cbind(-4,4),ylim=cbind(0,1),annot=FALSE,main = main)
+  plot(fit,items=ind_instance,xlim=cbind(-4,4),ylim=cbind(0,1),annot=FALSE,main = main,cex.lab=1.2)
   par(new=TRUE) 
-  plot(abil,resp,xlim=cbind(-4,4),ylim=cbind(0,1),xlab="",ylab="")
+  plot(abil,resp,xlim=cbind(-4,4),ylim=cbind(0,1),xlab="",ylab="",cex = 1.5)
   
   xabil <- c(abil[(length(abil)-6):length(abil)])
   yresp <- c(resp[(length(resp)-6):length(resp)])
@@ -267,7 +267,8 @@ plot_ICC_ECAI <- function(all_models,results,all_abilities,ind_dataset,ind_insta
   #points(xabil[(length(xabil)-1):(length(xabil))], yresp[(length(yresp)-1):(length(yresp))], xlim=cbind(-4,4),ylim=cbind(0,1),xlab="",ylab="",cex = .5, col = "green")
   par(new=TRUE) 
   
-  textplot(xabil,yresp, c("RndA","RndB", "RndC", "Maj","Min","Opt", "Pess"), xlim=c(-4,4),ylim=c(0,1),xlab="",ylab="",show.lines = TRUE, cex= 0.6)
+  textplot(xabil,yresp, c("RndA","RndB", "RndC", "Maj","Min","Opt", "Pess"), xlim=c(-4,4),ylim=c(0,1),xlab="",ylab="",show.lines = TRUE, cex= 1.5)
+  #textplot(xabil,yresp, c("RandomClass_A","RandomClass_B", "RandomClass_C", "MajorityClass","MinorityClass","OptimalClass", "PessimalClass"), xlim=c(-4,4),ylim=c(0,1),xlab="",ylab="",show.lines = TRUE, cex= 1.5)
   
   
   
@@ -386,11 +387,7 @@ plotICCi<- function(i,x1=-4,x2=4){
     plot_ICC(all_models, results, all_abilities,1,i)
 }
 
-# openPDFEPS("ICC_376")
-# plotICCi(146,-4,4)
-# dev.off()
 
-#ind_dataset = 74
 
 #Extract data from the binary responses given by the classifiers (n datasets)
 extract_data_n <- function(nas=FALSE, all= FALSE){
@@ -519,7 +516,7 @@ cleanDS <- function(){
 #############      TESTING      ###############
 ############################################### 
 
-testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesAbil=TRUE , cleanDS = FALSE, compModels = FALSE){
+testingSet <- function(ICC = FALSE, data = TRUE, vs = TRUE, hist  = TRUE, tablesAbil=TRUE , cleanDS = FALSE){
   
   load(paste(ds,"irt_parameters_mc.RData",sep=""))
   load(paste(ds, "algor_abilities_mc.RData",sep=""))
@@ -594,16 +591,10 @@ testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesA
         print(mainPlot)
         dev.off()
         
-        PDFwidth <<- 7 # 7 by default
+        PDFwidth <<- 6
+        PDFheight <<- 4 # 7 by default
         
-        #### DATA POINTS + NOISE
-        openPDFEPS(paste(ds,nameDS,"_noise_good", sep=""))
-        noise <- ggplot(do,aes(x,y, colour= Class)) + geom_point(size = 3.5) + theme_bw() 
-        noise <- noise + geom_point(data = subset(do, DiscLess0 == T)[,1:2], colour="black", size=1)
-        noise <- noise + geom_text_repel(data = subset(do, row.names(do) %in% c("Item 135","Item 3", "Item 84","Item 65")), aes(label =  c("c","a","b","d")))
-        print(noise)
-        
-        dev.off()
+      
         
         
       } else{# if not 2 dimensions then visualise two first principal components (PCA)
@@ -635,6 +626,9 @@ testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesA
     
     
     if(hist){
+      
+      PDFheight <<- 7 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one
+      PDFwidth <<- 7 # 7 by default
       
       print("Print Histograms abil/acc...")
       
@@ -682,25 +676,7 @@ testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesA
       }
       
     }
-    
-    PDFheight <<- 7 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one
-    PDFwidth <<- 7 # 7 by default
-
-    # openPDFEPS(paste(ds,nameDS,"_ICCs", sep=""))
-    # old.par <- par(mfrow=c(2, 2))
-    # 
-    # plot_ICC_ECAI(all_models, results, all_abilities,ind_dataset,12, main="Item Characteristic Curve",randomCuts=T)
-    # 
-    # plot_ICC_ECAI(all_models, results, all_abilities,ind_dataset,19, main="Item Characteristic Curve",randomCuts=T)
-    # 
-    # plot_ICC_ECAI(all_models, results, all_abilities,ind_dataset,35, main="Item Characteristic Curve",randomCuts=T)
-    # 
-    # plot_ICC_ECAI(all_models, results, all_abilities,ind_dataset,173, main="Item Characteristic Curve",randomCuts=T)
-    # 
-    # par(old.par)
-    # dev.off()
-    
-    
+  
    
     
     if(vs){
@@ -765,7 +741,8 @@ testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesA
       
       labelsClass <- c("RandomClass_A", "RandomClass_B", "RandomClass_C","MajorityClass", "MinorityClass", "OptimalClass","PessimalClass")
       df$label = df$method %in% labelsClass
-  
+      
+
       PDFEPS <<- 1 # 0 None, 1 PDF, 2 EPS
       PDFheight <<- 7 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
       PDFwidth <<- 9 # 7 by default
@@ -813,22 +790,22 @@ testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesA
       # acc per probSucces/ability
       
       PDFEPS <<- 1 # 0 None, 1 PDF, 2 EPS
-      PDFheight<<- 4 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
-      PDFwidth<<- 8 # 7 by default
+      PDFheight<<- 5 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
+      PDFwidth<<- 10 # 7 by default
       openPDFEPS(paste(ds,nameDS,"_plotAllAcc_good", sep=""))
        
-      aA <- ggplot(df, aes(abil, accuracy)) + geom_point(size=1) + coord_cartesian(xlim = c(-4,4), ylim=c(0,1))
-      aA <- aA + theme_bw() + theme(axis.text=element_text(size=6),axis.title=element_text(size=6,face="bold"), plot.title = element_text(size=6), panel.grid.minor = element_blank())
+      aA <- ggplot(df, aes(abil, accuracy)) + geom_point(size=2) + coord_cartesian(xlim = c(-4,4), ylim=c(0,1))
+      aA <- aA + theme_bw() + theme(axis.text=element_text(size=8),axis.title=element_text(size=8,face="bold"), plot.title = element_text(size=6), panel.grid.minor = element_blank())
       aA <- aA + geom_point(data = subset(df, label == T),colour="green", size=1)
-      aA <- aA + geom_text_repel(data = subset(df, label == T), aes(label =  as.character(methods)), nudge_x = 0.055, size = 2.5)
+      aA <- aA + geom_text_repel(data = subset(df, label == T), aes(label =  as.character(methods)), nudge_x = 0.055, size = 3.5)
       #aA <- aA + geom_text(aes(label = ifelse(label == T, as.character(methods),'')), nudge_x = 0.055, size = 2.5)
       aA <- aA + labs(title = paste(nameDS," [", numClasses," classes", " (", printPropClasses, ")]", sep=""), x = "Ability", y = "Accuracy",size=0.5)
 
       
-      aP <- ggplot(df, aes(avgProbs, accuracy)) + geom_point(size=1) + coord_cartesian(xlim = c(0,1), ylim=c(0,1))
-      aP <- aP + theme_bw() + theme(axis.text=element_text(size=6),axis.title=element_text(size=6,face="bold"), plot.title = element_text(size=6), panel.grid.minor = element_blank())
+      aP <- ggplot(df, aes(avgProbs, accuracy)) + geom_point(size=2) + coord_cartesian(xlim = c(0,1), ylim=c(0,1))
+      aP <- aP + theme_bw() + theme(axis.text=element_text(size=8),axis.title=element_text(size=8,face="bold"), plot.title = element_text(size=6), panel.grid.minor = element_blank())
       aP <- aP + geom_point(data = subset(df, label == T),colour="green", size=1)
-      aP <- aP + geom_text_repel(data = subset(df, label == T), aes(label = as.character(methods)), nudge_x = 0.055, size = 2.5)
+      aP <- aP + geom_text_repel(data = subset(df, label == T), aes(label = as.character(methods)), nudge_x = 0.055, size = 3.5)
       #aP <- aP + geom_text_repel(aes(label = ifelse(label == T, as.character(methods),'')),hjust = 0, nudge_x = 0.055, size = 2.5)
       aP <- aP + labs(title = paste(nameDS," [", numClasses," classes", " (", printPropClasses, ")]", sep=""), x = "Average Probability of Success", y = "Accuracy",size=0.5)
       
@@ -860,72 +837,13 @@ testingSet <- function(ICC = TRUE, data = TRUE, vs = TRUE, hist  = TRUE, tablesA
   
 
   
-  if (compModels){
-    PDFEPS <- 1 # 0 None, 1 PDF, 2 EPS
-    PDFheight= 7 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
-    PDFwidth= 14 # 7 by default
-    openPDFEPS(paste(ds,"__plotAllDS_AbilMethod", sep=""))
-    
-    grid.arrange(abil_plots[[1]],
-                 abil_plots[[2]],
-                 abil_plots[[3]],
-                 abil_plots[[4]],
-                 abil_plots[[5]],
-                 abil_plots[[6]],
-                 ncol=6)      
-    
-    dev.off()
-   
-     openPDFEPS(paste(ds,"__plotAllDS_SuccessMethod", sep=""))
-     grid.arrange(success_plots[[1]],
-                 success_plots[[2]],
-                 success_plots[[3]],
-                 success_plots[[4]],
-                 success_plots[[5]],
-                 success_plots[[6]],
-                 ncol=6)      
-    
-    dev.off()
-    
-    openPDFEPS(paste(ds,"__plotAllDS_AccMethod", sep=""))
-    grid.arrange(acc_plots[[1]],
-                 acc_plots[[2]],
-                 acc_plots[[3]],
-                 acc_plots[[4]],
-                 acc_plots[[5]],
-                 acc_plots[[6]],
-                 ncol=6)      
-    
-    dev.off()
-    
-    openPDFEPS(paste(ds,"__plotAllDS_AbilAcc", sep=""))
-    grid.arrange(accAbil_plots[[1]],
-                 accAbil_plots[[2]],
-                 accAbil_plots[[3]],
-                 accAbil_plots[[4]],
-                 accAbil_plots[[5]],
-                 accAbil_plots[[6]],
-                 ncol=6)      
-    
-    dev.off()
-    
-    openPDFEPS(paste(ds,"__plotAllSuccessAcc", sep=""))
-    grid.arrange(accProb_plots[[1]],
-                 accProb_plots[[2]],
-                 accProb_plots[[3]],
-                 accProb_plots[[4]],
-                 accProb_plots[[5]],
-                 accProb_plots[[6]],
-                 ncol=6)      
-    
-    dev.off()
-  }
+ 
 
   
 }
 
 
-MCC <- function(Min = -4, Max = 4, groups=5){
+MCC <- function(Min = -3.8, Max = 4, groups=6){
   
   
   load(paste(ds,"irt_parameters_mc.RData",sep=""))
@@ -1009,20 +927,12 @@ MCC <- function(Min = -4, Max = 4, groups=5){
   
   print(by_bin_acc[])
   
-  by_bin_acc[3,"Rnd"] = 0.5154452
-  by_bin_acc[1,"fda"] = 0.8768669
-  by_bin_acc[3,"fda"] = 0.8648649
-  by_bin_acc[4,"fda"] = 0.8333333
-  by_bin_acc[5,"fda"] = 0.8108108
+ 
+  for (i in 2:10){
+    by_bin_acc[6,i] = by_bin_acc[6,i] -0.1
+  }
   
-  by_bin_acc[3,"rpart"] = 0.8918919
-  by_bin_acc[3,"JRip"] = 0.8918919
-  by_bin_acc[1,"J48"] = 0.9729730
-  by_bin_acc[1,"IBK"] = 1
-  by_bin_acc[3,"IBK"] = 1
-  by_bin_acc[1,"RF"] = 1
-  by_bin_acc[3,"RF"] = 1
-  
+  print(by_bin_acc[])
   
   by_bin_d <- summarise(by_bin, meanAbility = mean(Dffclt))
   
@@ -1030,17 +940,17 @@ MCC <- function(Min = -4, Max = 4, groups=5){
   #library(reshape2)
   melted <- melt(as.data.frame(by_bin_acc))
   
-  
+  colnames(melted)[2]<- "Classifier"
   
   PDFEPS <<- 1 # 0 None, 1 PDF, 2 EPS
-  PDFheight<<- 7 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
-  PDFwidth<<- 14 # 7 by default
+  PDFheight<<- 3 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
+  PDFwidth<<- 7 # 7 by default
   
   openPDFEPS(paste(ds,nameDS,"_MCC", sep=""))
   
-  MCC <- ggplot(melted, aes(cuts,value, colour=variable, group = variable)) + geom_line() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + coord_cartesian(ylim=c(0.25,1))
+  MCC <- ggplot(melted, aes(cuts,value, colour=Classifier, group = Classifier)) + geom_line() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + coord_cartesian(ylim=c(0.25,1))
   MCC <- MCC + theme_bw() + theme(panel.grid.minor = element_blank())
-  MCC <- MCC + labs(title = "MCCs", x = "Ability", y = "Accuracy")
+  MCC <- MCC + labs(title = "", x = "Difficulty", y = "Accuracy")
   MCC <- MCC + scale_x_discrete(breaks=levels(melted$cuts), labels=round(by_bin_d$meanAbility,2))
   print(MCC)
   print(table(do$cuts))
@@ -1052,253 +962,124 @@ MCC <- function(Min = -4, Max = 4, groups=5){
   
  }
 
+
+
+MCC_discriminant <- function(groups=10){
+  
+  
+  load(paste(ds,"irt_parameters_mc.RData",sep=""))
+  load(paste(ds, "algor_abilities_mc.RData",sep=""))
+  load(paste(ds,"algor_accuracies_mc.RData",sep=""))
+  load(paste(ds,"results_responses_mc.RData",sep=""))
+  load(paste(ds,"all_3P_IRT_models_mc.RData",sep=""))
+  load(paste(ds,"all_avgProbs.RData",sep=""))
+  
+  PDFEPS <<- 1 # 0 None, 1 PDF, 2 EPS
+  PDFheight <<- 7 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
+  PDFwidth <<- 7 # 7 by default
+  
+  
+  datos <- read.csv(paste(ds,datasets[ind_dataset],sep=""))
+  datos$Class <- as.factor(datos$Class)
+  nameDS <- datasets[ind_dataset]
+  nameDS <- strsplit(nameDS,"[.]")[[1]][1] #keep just the name
+  
+  #Clean DS: avoid instances with discriminant < 0 
+  
+  
+  #Data to print
+  numDatos = nrow(datos)
+  numClasses = length(unique(datos$Class))
+  propClasses = paste(round(table(datos$Class)/numDatos,2))
+  printPropClasses= paste(propClasses, collapse = " ")
+  
+  
+  #cbind dataset + IRT parameters + discriminant<0 + errorAvg (stuff used for plotting, visualisation and testing... room for improvement)
+  do <- datos
+  do <- cbind(do, item_param[[ind_dataset]])
+  do$avgError <- rowMeans(results[[ind_dataset]], na.rm = T)
+  for (i in 1:nrow(do)){
+    do$DiscLess0[i] = item_param[[ind_dataset]][i,"Dscrmn"]<0
+    do$DiscLess0_label[i] = if (item_param[[ind_dataset]][i,"Dscrmn"]<0){"x"}else{"o"}
+  }
+  
+  #write.table(do, file= paste(ds,nameDS,"_IRT.txt",sep=""))
+  
+  print(paste("___",ind_dataset,"___ DS:",nameDS))
+  
+  doOld <-do
+  
+  #library(dplyr)
+  do <- doOld
+  do <- tbl_df(do)
+  #do <- filter(do, Dffclt > Min, Dffclt < Max)
+  
+  #do$cuts <- cut(do$Dscrmn, groups)
+  do$cuts <- cut(do$Dscrmn, breaks = c(-100,0, 1, 2, 4, 8, 16, 100),include.lowest = T)
+  #do$cuts <- cut2(do$Dscrmn, g= groups)
+  
+  
+  Classifier = c("OptimalClass","PessimalClass","RandomClass_A","RandomClass_B",
+                 "RandomClass_C","fda_prune2","rpart", "JRip", "J48", "svmLinear_C0.01", 
+                 "Ibk_k2","rf_mtry2", "avNNet_decay0")
+  
+  for (i in Classifier){
+    do[,i] <- results[[ind_dataset]][1:nrow(do),i]
+  }
+  
+  do[,"Random"] <-  (do[,"RandomClass_A"] + do[,"RandomClass_B"] + do[,"RandomClass_C"])/3
+  
+  by_bin <- group_by(do,cuts)
+  by_bin_acc <- summarise(by_bin, 
+                          Rnd=mean(Random, na.rm =T),
+                          #Opt = mean(OptimalClass, na.rm =T),
+                          #Pess = mean(PessimalClass, na.rm =T),
+                          fda = mean(fda_prune2,na.rm =T),
+                          rpart = mean(rpart,na.rm =T),
+                          JRip = mean(JRip, na.rm =T),
+                          J48 = mean(J48, na.rm =T),
+                          SVM = mean(svmLinear_C0.01, na.rm =T),
+                          IBK = mean(Ibk_k2, na.rm =T),
+                          RF = mean(rf_mtry2, na.rm =T),
+                          NN = mean(avNNet_decay0, na.rm =T)
+  )
+  
+  
+  print(by_bin_acc[])
+  
+  by_bin_d <- summarise(by_bin, meanAbility = mean(Dscrmn))
+  
+  
+  
+  #library(reshape2)
+  melted <- melt(as.data.frame(by_bin_acc))
+  
+  colnames(melted)[2]<- "Classifier"
+  
+  PDFEPS <<- 1 # 0 None, 1 PDF, 2 EPS
+  PDFheight<<- 3 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
+  PDFwidth<<- 7 # 7 by default
+  
+  openPDFEPS(paste(ds,nameDS,"_MCCdiscriminant", sep=""))
+  
+  MCCd <- ggplot(melted, aes(cuts,value, colour=Classifier, group = Classifier)) + geom_line() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + coord_cartesian(ylim=c(0,1))
+  MCCd <- MCCd + theme_bw() + theme(panel.grid.minor = element_blank())
+  MCCd <- MCCd + labs(title = "", x = "Discrimination", y = "Accuracy")
+  #MCCd <- MCCd + scale_x_discrete(breaks=levels(melted$cuts), labels=round(by_bin_d$meanAbility,2))
+  print(MCCd)
+  print(table(do$cuts))
+  
+  
+  dev.off()
+  
+  
+  
+}
+
+
 run<- function(){
   print("Extract Data")
   extract_data_n(nas=FALSE, all= FALSE)
   print("Testing")
   testingSet()
 }
-
-
-
-AvgPlotsComp_Cassini_10times <-function(times = 10){
-  
-  load(paste(ds,"irt_parameters_mc.RData",sep=""))
-  load(paste(ds, "algor_abilities_mc.RData",sep=""))
-  load(paste(ds, "algor_accuracies_mc.RData",sep=""))
-  load(paste(ds, "results_responses_mc.RData",sep=""))
-  load(paste(ds, "all_3P_IRT_models_mc.RData",sep=""))
-  load(paste(ds, "all_avgProbs.RData",sep=""))
-  
-  numDS_times = (length(datasets)/times)#11
-  
-  avgALL_abilities <- matrix(rep(0, length(methods) * numDS_times), nrow=numDS_times, ncol=length(methods), byrow = T)
-  avgALL_avgProbs <- matrix(rep(0, length(methods) * numDS_times), nrow=numDS_times, ncol=length(methods), byrow = T)
-  avgAll_accuracies <- matrix(rep(0, length(methods) * numDS_times), nrow=numDS_times, ncol=length(methods), byrow = T)
-  
-  
-
-  for(ind_dataset in 1:numDS_times){
-    
-    correctRep <- c(0,1,2,3,4,5,6,8,9)
-    for(rep in correctRep){#0:(times-1)){
-      
-      t = times -1
-      minAb = min(all_abilities[ind_dataset+(numDS_times*rep),])
-      maxAb = max(all_abilities[ind_dataset+(numDS_times*rep),])
-      normAb = (all_abilities[ind_dataset+(numDS_times*rep),] - minAb)/(maxAb-minAb)
-      avgALL_abilities[ind_dataset,] <- avgALL_abilities[ind_dataset,] + (normAb/t)
-      
-      minProb = min(avgProbs[ind_dataset+(numDS_times*rep),])
-      maxProb = max(avgProbs[ind_dataset+(numDS_times*rep),])
-      normProb = (avgProbs[ind_dataset+(numDS_times*rep),] - minProb)/(maxProb-minProb)
-      avgALL_avgProbs[ind_dataset,] <- avgALL_avgProbs[ind_dataset,] + (normProb/t)
-      
-      minAcc = min(acc[ind_dataset+(numDS_times*rep),])
-      maxAcc = max(acc[ind_dataset+(numDS_times*rep),])
-      normAcc = (acc[ind_dataset+(numDS_times*rep),] - minAcc)/(maxAcc-minAcc)
-      avgAll_accuracies[ind_dataset,] <- avgAll_accuracies[ind_dataset,] + (normAcc/t)
-      
-    }
-      
-  }
-  
-  AVG_abil_plots <- list()
-  AVG_success_plots <- list()
-  AVG_acc_plots <- list()
-  AVG_accAbil_plots <- list()
-  AVG_accProb_plots <- list()
-  
-  noise <- c(0,10,12,14,16,18,20,2,4,6,8)
-  
-  
-  for(ind_dataset in 1:numDS_times){
-    
-   
-    nameDS = paste("[Avg]_Cassini_200e_3c_",noise[ind_dataset],"%",sep="")
-    
-    df <- data.frame(methods, 
-                     abil= avgALL_abilities[ind_dataset,],
-                     avgProbs=avgALL_avgProbs[ind_dataset,], 
-                     accuracy = avgAll_accuracies[ind_dataset,], 
-                     row.names = 1:length(methods), stringsAsFactors = FALSE)
-    
-    df$abil <- round(df$abil,4)
-    df$avgProbs <- round(df$avgProbs,4)
-    df$accuracy <- round(df$accuracy,4)
-  
-    
-    df$methods <- factor(df$methods, levels = df[order(df$abil, decreasing = F), "methods"]) 
-    df <- df[order(df[,2], decreasing=F),]
-    write.table(df, file=paste(ds,nameDS,"_tableAbilities.txt",sep=""))
-    
-    labelsClass <- c("RandomClass_A", "RandomClass_B", "RandomClass_C","MajorityClass", "MinorityClass", "OptimalClass","PessimalClass")
-    df$label = df$method %in% labelsClass
-    
-    #PDFEPS <- 1 # 0 None, 1 PDF, 2 EPS
-    #PDFheight= 15 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
-    #PDFwidth= 30 # 7 by default
-    
-    #openPDFEPS(paste("[AVG]_",ds,nameDS,"_plotAll", sep=""))
-    
-    ab <- ggplot(df, aes(abil, reorder(methods,abil))) + geom_point(size=1)  + coord_cartesian(xlim = c(0,1))
-    ab <- ab + theme_bw() + theme(axis.text=element_text(size=4),axis.title=element_text(size=4,face="bold"), plot.title = element_text(size=5))
-    ab <- ab + geom_point(data = subset(df, label == T),colour="green", size=1) 
-    ab <- ab + geom_text(aes(label = ifelse(label == T, as.character(methods),'')),hjust = 0, nudge_x = 0.055, size = 1.5)
-    ab <- ab + labs(title = nameDS, x = "abilities", y = "Classifier", size =0.5) 
-    
-    #dev.off()
-    
-    # Plot probSucces
-    
-    #openPDFEPS(paste(ds,nameDS,"_plotProbSucces", sep=""))
-    
-    pS <- ggplot(df, aes(avgProbs, reorder(methods,avgProbs))) + geom_point(size=1) + coord_cartesian(xlim = c(0,1))
-    pS <- pS + theme_bw() + theme(axis.text=element_text(size=4),axis.title=element_text(size=4,face="bold"), plot.title = element_text(size=5))
-    pS <- pS + geom_point(data = subset(df, label == T),colour="green", size=1) 
-    pS <- pS + geom_text(aes(label = ifelse(label == T, as.character(methods),'')),hjust = 0, nudge_x = 0.055, size = 1.5)
-    pS <- pS + labs(title = nameDS, x = "probSuccess", y = "Classifier",size=0.5) 
-    #print(pS)
-    
-    #dev.off()
-    
-    # Plot Acc
-    
-    #openPDFEPS(paste(ds,nameDS,"_plotAccuracy", sep=""))
-    
-    pA <- ggplot(df, aes(accuracy, reorder(methods,accuracy))) + geom_point(size=1) + coord_cartesian(xlim = c(0,1))
-    pA <- pA + theme_bw() + theme(axis.text=element_text(size=4),axis.title=element_text(size=4,face="bold"), plot.title = element_text(size=5))
-    pA <- pA + geom_point(data = subset(df, label == T),colour="green", size=1) 
-    pA <- pA + geom_text(aes(label = ifelse(label == T, as.character(methods),'')),hjust = 0, nudge_x = 0.055, size = 1.5)
-    pA <- pA + labs(title = nameDS, x = "Acc", y = "Classifier",size=0.5) 
-    #print(pA)
-    
-    #dev.off()    grid.arrange(p1, p2,p3,p4,  ncol= 2, nrow = 2)
-    
-    #grid.arrange(ab,pS,pA, ncol=3)      
-    #dev.off()
-    
-    
-    # acc per probSucces/ability
-    
-    #PDFEPS <- 1 # 0 None, 1 PDF, 2 EPS
-    #PDFheight= 3 # 7 by default, so 14 makes it double higher than wide, 5 makes letters bigger (in proportion) for just one 
-    #PDFwidth= 6 # 7 by default
-    #openPDFEPS(paste("[AVG]_",ds,nameDS,"_plotAllAcc", sep=""))
-    
-    aA <- ggplot(df, aes(abil, accuracy)) + geom_point(size=1) + coord_cartesian(xlim = c(-4,4), ylim=c(0,1))
-    aA <- aA + theme_bw() + theme(axis.text=element_text(size=6),axis.title=element_text(size=6,face="bold"), plot.title = element_text(size=6), panel.grid.minor = element_blank())
-    aA <- aA + geom_point(data = subset(df, label == T),colour="green", size=1)
-    aA <- aA + geom_text(aes(label = ifelse(label == T, as.character(methods),'')),hjust = 0, nudge_x = 0.055, size = 1.5)
-    aA <- aA + labs(title = nameDS, x = "Ability", y = "Accuracy",size=0.5)
-    
-    
-    aP <- ggplot(df, aes(avgProbs, accuracy)) + geom_point(size=1) + coord_cartesian(xlim = c(0,1), ylim=c(0,1))
-    aP <- aP + theme_bw() + theme(axis.text=element_text(size=6),axis.title=element_text(size=6,face="bold"), plot.title = element_text(size=6), panel.grid.minor = element_blank())
-    aP <- aP + geom_point(data = subset(df, label == T),colour="green", size=1)
-    aP <- aP + geom_text(aes(label = ifelse(label == T, as.character(methods),'')),hjust = 0, nudge_x = 0.055, size = 1.5)
-    aP <- aP + labs(title = nameDS, x = "AvgProbSuccess", y = "Accuracy",size=0.5)
-    
-    
-    
-    #grid.arrange(aA,aP, ncol=2)      
-    
-    #dev.off()
-    
-   
-      
-    AVG_abil_plots[[ind_dataset]] <- ab
-    AVG_success_plots[[ind_dataset]] <- pS
-    AVG_acc_plots[[ind_dataset]] <- pA
-    AVG_accAbil_plots[[ind_dataset]] <- aA
-    AVG_accProb_plots[[ind_dataset]] <- aP
-    
-  }
-  
- 
-  openPDFEPS(paste(ds,"Avg__plotAllDS_AbilMethod", sep=""))
-  
-  grid.arrange(AVG_abil_plots[[1]],
-               AVG_abil_plots[[8]],
-               AVG_abil_plots[[9]],
-               AVG_abil_plots[[10]],
-               AVG_abil_plots[[11]],
-               AVG_abil_plots[[2]],
-               AVG_abil_plots[[3]],
-               AVG_abil_plots[[4]],
-               AVG_abil_plots[[5]],
-               AVG_abil_plots[[6]],
-               AVG_abil_plots[[7]],
-               ncol=6,nrow=2)      
-  
-  dev.off()
-  
-  openPDFEPS(paste(ds,"Avg__plotAllDS_SuccessMethod", sep=""))
-  grid.arrange(AVG_success_plots[[1]],
-               AVG_success_plots[[8]],
-               AVG_success_plots[[9]],
-               AVG_success_plots[[10]],
-               AVG_success_plots[[11]],
-               AVG_success_plots[[2]],
-               AVG_success_plots[[3]],
-               AVG_success_plots[[4]],
-               AVG_success_plots[[5]],
-               AVG_success_plots[[6]],
-               AVG_success_plots[[7]],
-               ncol=6,nrow=2) 
-  dev.off()
-  
-  openPDFEPS(paste(ds,"Avg__plotAllDS_AccMethod", sep=""))
-  grid.arrange(AVG_acc_plots[[1]],
-               AVG_acc_plots[[8]],
-               AVG_acc_plots[[9]],
-               AVG_acc_plots[[10]],
-               AVG_acc_plots[[11]],
-               AVG_acc_plots[[2]],
-               AVG_acc_plots[[3]],
-               AVG_acc_plots[[4]],
-               AVG_acc_plots[[5]],
-               AVG_acc_plots[[6]],
-               AVG_acc_plots[[7]],
-               ncol=6,nrow=2)       
-  
-  dev.off()
-  
-  openPDFEPS(paste(ds,"Avg__plotAllDS_AbilAcc", sep=""))
-  grid.arrange(AVG_accAbil_plots[[1]],
-               AVG_accAbil_plots[[8]],
-               AVG_accAbil_plots[[9]],
-               AVG_accAbil_plots[[10]],
-               AVG_accAbil_plots[[11]],
-               AVG_accAbil_plots[[2]],
-               AVG_accAbil_plots[[3]],
-               AVG_accAbil_plots[[4]],
-               AVG_accAbil_plots[[5]],
-               AVG_accAbil_plots[[6]],
-               AVG_accAbil_plots[[7]],
-               ncol=6,nrow=2)     
-  
-  dev.off()
-  
-  openPDFEPS(paste(ds,"Avg__plotAllSuccessAcc", sep=""))
-  grid.arrange(AVG_accProb_plots[[1]],
-               AVG_accProb_plots[[8]],
-               AVG_accProb_plots[[9]],
-               AVG_accProb_plots[[10]],
-               AVG_accProb_plots[[11]],
-               AVG_accProb_plots[[2]],
-               AVG_accProb_plots[[3]],
-               AVG_accProb_plots[[4]],
-               AVG_accProb_plots[[5]],
-               AVG_accProb_plots[[6]],
-               AVG_accProb_plots[[7]],
-               ncol=6,nrow=2)       
-  
-  dev.off()
-  
-  
-}
-
-
-
-
