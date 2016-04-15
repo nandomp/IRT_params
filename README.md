@@ -16,7 +16,7 @@ R VARIABLES
 
 ************************************************
 
-*all_param_mc (in file "irt_parameters_mc.RData")*
+**all_param_mc (in file "irt_parameters_mc.RData")**
 
 - List of the IRT parameters for each dataset. The element all_param[[i]] is realted to a dataset and 
 stores a matrix of size "ninstances x 3", with the guessing, difficulty and discrimination parameters for each instance.  
@@ -30,7 +30,7 @@ Example: The parameters of the 100th instance of the 2nd dataset
 ```
 
 
-*all_abilities_mc (in file "algor_abilities_mc.RData")*
+**all_abilities_mc (in file "algor_abilities_mc.RData")**
 
 - Matrix of size "ndatasets x nalgorithms" with the abilities estimated by the IRT model. We have in this 
 matrix ndatasets = 23 and nalgorithms = 15.
@@ -44,7 +44,7 @@ Example: algorithms' abilities in the 3rd dataset
  [13]  0.8074555  1.3203026 -1.5295262
 ```
 
-*all_accuracies_mc (in file "algor_accuracies_mc.RData")*
+**all_accuracies_mc (in file "algor_accuracies_mc.RData")**
 
 - Stores the accuracies of the 15 algorithms in the 23 datasets
 
@@ -61,7 +61,7 @@ Example: algorithms' accuracies in the 2nd dataset:
 ```
 
 
-*results_mc (in file "results_responses_mc.RData")*
+**results_mc (in file "results_responses_mc.RData")**
 
 - List of binary responses of the algorithms for each dataset. The element results[[i]] is related to a dataset and stores a matrix of size "ninstances x nalgorithms" with 1's (right responses) and 0's (wrong responses). It 
 is useful to generate other measures like accuracy of the algorithms and average 0\1 per instance.
