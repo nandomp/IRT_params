@@ -1,6 +1,6 @@
-# IRT4ML (draft doc)
+# Making sense of item response theory in machine learning (Expermiments & Code) [UPDATING...]
 
-Important Files:
+## Important code files:
 
 - MethodsResponse.R: Classifiers binary responses (TRUE,FALSE) for the instances in a dataset
 - IRT_model_fit_and_plot.R: IRT models (LTM and MIRT packages) and different plots.
@@ -8,8 +8,7 @@ Important Files:
 - runExperiments.R: Runs the experimets. Put a .csv dataset in "/_Toy_/" and run "run()" for a single sort of model estimation (select it in the file "IRT_model_fit_and_plot.R", function "extract_data()" or "runComparison_Hangout()" for a comparison between models (do not forget to change the working directory in all the files).
 
 
-RData (outputs):
-
+## RData (outputs):
 
 List of R variables collected using the multiclass datasets
  
@@ -24,10 +23,9 @@ stores a matrix of size "ninstances x 3", with the guessing, difficulty and disc
 
 Example: The parameters of the 100th instance of the 2nd dataset
 
-> all_param_mc[[2]][100,] 
-
-Gussng        Dffclt        Dscrmn 
- 4.007872e-06  2.127100e+00 -1.177862e+00 
+>all_param_mc[[2]][100,] 
+> Gussng        Dffclt        Dscrmn 
+> 4.007872e-06  2.127100e+00 -1.177862e+00 
  
 
 ************************************************
