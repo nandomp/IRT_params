@@ -2,10 +2,10 @@
 
 ## Important code files:
 
-- MethodsResponse.R: Classifiers binary responses (TRUE,FALSE) for the instances in a dataset
-- IRT_model_fit_and_plot.R: IRT models (LTM and MIRT packages) and different plots.
-- 3PLmodelsComparison.R: Comparative between four 3PL models (LTM, LTM RND, MIRT, MIRT RND). It generates the same plots as the previous file.
-- runExperiments.R: Runs the experimets. Put a .csv dataset in "/_Toy_/" and run "run()" for a single sort of model estimation (select it in the file "IRT_model_fit_and_plot.R", function "extract_data()" or "runComparison_Hangout()" for a comparison between models (do not forget to change the working directory in all the files).
+- **MethodsResponse.R** Classifiers binary responses (TRUE,FALSE) for the instances in a dataset
+- **IRT_model_fit_and_plot.R** IRT models (LTM and MIRT packages) and different plots.
+- **3PLmodelsComparison.R** Comparative between four 3PL models (LTM, LTM RND, MIRT, MIRT RND). It generates the same plots as the previous file.
+- **runExperiments.R** Run the experimets. Change the directory where your .csv are placed. 
 
 
 ## RData (outputs):
