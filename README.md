@@ -1,9 +1,9 @@
-# &#x1F535; Making sense of IRT in machine learning &#x1F535;
-## (Expermiments & Code) [UPDATING...]
+# Making sense of IRT in machine learning (Expermiments & Code) [UPDATING...]
 
 
 
-## Important code files:
+
+## &#x1F535; Important code files:
 
 - **MethodsResponse.R** Classifiers binary responses (TRUE,FALSE) for the instances in a dataset
 - **IRT_model_fit_and_plot.R** IRT models (LTM and MIRT packages) and different plots.
@@ -11,7 +11,7 @@
 - **runExperiments.R** Run the experimets. Change the directory where your .csv are placed. 
 
 
-## Set of classifiers
+## &#x1F535; Set of classifiers
 
 ```R
   methods<-c("c5.0", "c5.0_winnow", "J48", "J48Unp", "LMT", "LMT_CV", "LMT_AIC", "rpart", "ctree_c0.01", 
@@ -34,7 +34,7 @@
 }
 ```
 
-## Set of Datasets
+## &#x1F535; Set of Datasets
 
 | Dataset		| Instances		| NumAtt	| ClassProportion		|
 | ------------- |:-------------:| ---------:| ---------------------:|
@@ -49,7 +49,7 @@
 
 
 
-## RData (outputs):
+## &#x1F535; RData (outputs):
 
 List of R variables collected using the multiclass datasets
  
