@@ -11,15 +11,23 @@
 ## Set of classifiers
 
 ```R
-  methods<-c("c5.0", "c5.0_winnow", "J48", "J48Unp", "LMT", "LMT_CV", "LMT_AIC", "rpart", "ctree_c0.01", "ctree_c0.05", "ctree_c0.99", "JRip", "JRip_Unp","PART", "sda_L0.0", "sda_L0.5", "sda_L1.0", "fda_prune2", "fda_prune9", "fda_prune17", "mda_subc2", "mda_subc3", "mda_subc4","W_NB", "NB", "NB_laplace", "rbf", "mlp_1", "mlp_3", "mlp_5", "mlp_7", "mlp_9", "avNNet_decay1e04",
-             "avNNet_decay01", "avNNet_decay0", "pcaNNet", "lvq_1", "lvq_3", "lvq_5", "SMV", "svmRadialCost_C0.01",
-             "svmRadialCost_C0.1", "svmRadialCost_C1", "svmRadialCost_C2", "svmLinear_C0.01", "svmLineart_C0.1",
-             "svmLinear_C1", "svmLinear_C2", "svmLinear_C4", "svmLinear_C8", "svmPoly_d_1_s_0.001", "svmPoly_d_1_s_0.01",
-             "svmPoly_d_1_s_0.1", "svmPoly_d_2_s_0.001", "svmPoly_d_2_s_0.01", "svmPoly_d_2_s_0.1", "svmPoly_d_3_s_0.001",
-             "svmPoly_d_3_s_0.01", "svmPoly_d_3_s_0.1", "gbm_1_50", "gbm_1_100", "gbm_1_150", "gbm_2_50", "gbm_2_100", "gbm_2_150",
-             "gbm_3_50", "gbm_3_100", "gbm_3_150", "treeBag", "bagFDA_prune2", "bagFDA_prune4", "bagFDA_prune8",
-             "bagFDA_prune16", "rf_mtry2", "rf_mtry4", "rf_mtry8", "rf_mtry16", "rf_mtry32", "rf_mtry64", "rf_mtry128", "rrf_mtry2", "rrf_mtry4", "rrf_mtry8", "rrf_mtry16","rrf_mtry32", "rrf_mtry64", "rrf_mtry128", "cforest_mtry2", "cforest_mtry4", "cforest_mtry8", "cforest_mtry16","cforest_mtry32", "cforest_mtry64", "cforest_mtry128", "parRF_mtry2","parRF_mtry4", "parRF_mtry8", "parRF_mtry16", "parRF_mtry32", "parRF_mtry64", "parRF_mtry128", "knn_k1", "knn_k2", "knn_k3", "knn_k5", "knn_k7", "knn_k9", "Ibk_k1", "Ibk_k2", "Ibk_k3", "Ibk_k5", "Ibk_k7", "Ibk_k9", "pls_ncomp1", "pls_ncomp2",
-             "simpls_ncomp1", "simpls_ncomp2", "gcvEarth_d1", "gcvEarth_d2", "gcvEarth_d3", "RandomClass_A", "RandomClass_B", "RandomClass_C","MajorityClass", "MinorityClass", "OptimalClass","PessimalClass")
+  methods<-c("c5.0", "c5.0_winnow", "J48", "J48Unp", "LMT", "LMT_CV", "LMT_AIC", "rpart", "ctree_c0.01", 
+  "ctree_c0.05", "ctree_c0.99", "JRip", "JRip_Unp","PART", "sda_L0.0", "sda_L0.5", "sda_L1.0", "fda_prune2", 
+  "fda_prune9", "fda_prune17", "mda_subc2", "mda_subc3", "mda_subc4","W_NB", "NB", "NB_laplace", "rbf", 
+  "mlp_1", "mlp_3", "mlp_5", "mlp_7", "mlp_9", "avNNet_decay1e04", "avNNet_decay01", "avNNet_decay0", "pcaNNet",
+  "lvq_1", "lvq_3", "lvq_5", "SMV", "svmRadialCost_C0.01", "svmRadialCost_C0.1", "svmRadialCost_C1", 
+  "svmRadialCost_C2", "svmLinear_C0.01", "svmLineart_C0.1", "svmLinear_C1", "svmLinear_C2", "svmLinear_C4", 
+  "svmLinear_C8", "svmPoly_d_1_s_0.001", "svmPoly_d_1_s_0.01", "svmPoly_d_1_s_0.1", "svmPoly_d_2_s_0.001", 
+  "svmPoly_d_2_s_0.01", "svmPoly_d_2_s_0.1", "svmPoly_d_3_s_0.001", "svmPoly_d_3_s_0.01", "svmPoly_d_3_s_0.1", 
+  "gbm_1_50", "gbm_1_100", "gbm_1_150", "gbm_2_50", "gbm_2_100", "gbm_2_150", "gbm_3_50", "gbm_3_100", "gbm_3_150", 
+  "treeBag", "bagFDA_prune2", "bagFDA_prune4", "bagFDA_prune8", "bagFDA_prune16", "rf_mtry2", "rf_mtry4", "rf_mtry8", 
+  "rf_mtry16", "rf_mtry32", "rf_mtry64", "rf_mtry128", "rrf_mtry2", "rrf_mtry4", "rrf_mtry8", "rrf_mtry16",
+  "rrf_mtry32", "rrf_mtry64", "rrf_mtry128", "cforest_mtry2", "cforest_mtry4", "cforest_mtry8", "cforest_mtry16",
+  "cforest_mtry32", "cforest_mtry64", "cforest_mtry128", "parRF_mtry2","parRF_mtry4", "parRF_mtry8", "parRF_mtry16",
+  "parRF_mtry32", "parRF_mtry64", "parRF_mtry128", "knn_k1", "knn_k2", "knn_k3", "knn_k5", "knn_k7", "knn_k9", 
+  "Ibk_k1", "Ibk_k2", "Ibk_k3", "Ibk_k5", "Ibk_k7", "Ibk_k9", "pls_ncomp1", "pls_ncomp2", "simpls_ncomp1", 
+  "simpls_ncomp2", "gcvEarth_d1", "gcvEarth_d2", "gcvEarth_d3", "RandomClass_A", "RandomClass_B", "RandomClass_C",
+  "MajorityClass", "MinorityClass", "OptimalClass","PessimalClass")
 }
 ```
 
