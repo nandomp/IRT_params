@@ -23,7 +23,8 @@ stores a matrix of size "ninstances x 3", with the guessing, difficulty and disc
 
 Example: The parameters of the 100th instance of the 2nd dataset
 
->all_param_mc[[2]][100,] 
+> all_param_mc[[2]][100,] 
+
 > Gussng        Dffclt        Dscrmn 
 > 4.007872e-06  2.127100e+00 -1.177862e+00 
  
