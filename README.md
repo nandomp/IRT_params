@@ -25,8 +25,8 @@ Example: The parameters of the 100th instance of the 2nd dataset
 
 ```R
 > all_param_mc[[2]][100,] 
-> Gussng        Dffclt        Dscrmn 
-> 4.007872e-06  2.127100e+00 -1.177862e+00 
+ Gussng        Dffclt        Dscrmn 
+ 4.007872e-06  2.127100e+00 -1.177862e+00 
 ```
 
 
