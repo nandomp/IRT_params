@@ -6,7 +6,8 @@
 - **IRT_model_fit_and_plot.R** IRT models (LTM and MIRT packages) and different plots.
 - **3PLmodelsComparison.R** Comparative between four 3PL models (LTM, LTM RND, MIRT, MIRT RND). It generates the same plots as the previous file.
 - **runExperiments.R** Run the experimets. Change the directory where your .csv are placed. 
-- 
+
+
 ## Set of classifiers
 
 ```R
