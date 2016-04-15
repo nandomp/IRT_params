@@ -23,13 +23,16 @@ stores a matrix of size "ninstances x 3", with the guessing, difficulty and disc
 
 Example: The parameters of the 100th instance of the 2nd dataset
 
+```R
 > all_param_mc[[2]][100,] 
 
 > Gussng        Dffclt        Dscrmn 
 > 4.007872e-06  2.127100e+00 -1.177862e+00 
+```
+
+
  
 
-************************************************
 
 all_abilities_mc (in file "algor_abilities_mc.RData"):
 
@@ -40,9 +43,11 @@ Example: algorithms' abilities in the 3rd dataset
 
 > all_abilities_mc[3,]
 
- [1]  0.2174318  0.4485440  2.0641048  5.7090635  2.6863440  2.3428594
- [7] -1.1089645  2.2692792  0.7727770  1.2470157  2.6863440 -0.2820624
-[13]  0.8074555  1.3203026 -1.5295262
+> [1]  0.2174318  0.4485440  2.0641048  5.7090635  2.6863440  2.3428594
+
+> [7] -1.1089645  2.2692792  0.7727770  1.2470157  2.6863440 -0.2820624
+
+> [13]  0.8074555  1.3203026 -1.5295262
 
 ************************************************
 
