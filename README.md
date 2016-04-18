@@ -13,26 +13,48 @@
 
 ##  Set of classifiers
 
-```R
-  methods<-c("c5.0", "c5.0_winnow", "J48", "J48Unp", "LMT", "LMT_CV", "LMT_AIC", "rpart", "ctree_c0.01", 
-  "ctree_c0.05", "ctree_c0.99", "JRip", "JRip_Unp","PART", "sda_L0.0", "sda_L0.5", "sda_L1.0", "fda_prune2", 
-  "fda_prune9", "fda_prune17", "mda_subc2", "mda_subc3", "mda_subc4","W_NB", "NB", "NB_laplace", "rbf", 
-  "mlp_1", "mlp_3", "mlp_5", "mlp_7", "mlp_9", "avNNet_decay1e04", "avNNet_decay01", "avNNet_decay0", "pcaNNet",
-  "lvq_1", "lvq_3", "lvq_5", "SMV", "svmRadialCost_C0.01", "svmRadialCost_C0.1", "svmRadialCost_C1", 
-  "svmRadialCost_C2", "svmLinear_C0.01", "svmLineart_C0.1", "svmLinear_C1", "svmLinear_C2", "svmLinear_C4", 
-  "svmLinear_C8", "svmPoly_d_1_s_0.001", "svmPoly_d_1_s_0.01", "svmPoly_d_1_s_0.1", "svmPoly_d_2_s_0.001", 
-  "svmPoly_d_2_s_0.01", "svmPoly_d_2_s_0.1", "svmPoly_d_3_s_0.001", "svmPoly_d_3_s_0.01", "svmPoly_d_3_s_0.1", 
-  "gbm_1_50", "gbm_1_100", "gbm_1_150", "gbm_2_50", "gbm_2_100", "gbm_2_150", "gbm_3_50", "gbm_3_100", "gbm_3_150", 
-  "treeBag", "bagFDA_prune2", "bagFDA_prune4", "bagFDA_prune8", "bagFDA_prune16", "rf_mtry2", "rf_mtry4", "rf_mtry8", 
-  "rf_mtry16", "rf_mtry32", "rf_mtry64", "rf_mtry128", "rrf_mtry2", "rrf_mtry4", "rrf_mtry8", "rrf_mtry16",
-  "rrf_mtry32", "rrf_mtry64", "rrf_mtry128", "cforest_mtry2", "cforest_mtry4", "cforest_mtry8", "cforest_mtry16",
-  "cforest_mtry32", "cforest_mtry64", "cforest_mtry128", "parRF_mtry2","parRF_mtry4", "parRF_mtry8", "parRF_mtry16",
-  "parRF_mtry32", "parRF_mtry64", "parRF_mtry128", "knn_k1", "knn_k2", "knn_k3", "knn_k5", "knn_k7", "knn_k9", 
-  "Ibk_k1", "Ibk_k2", "Ibk_k3", "Ibk_k5", "Ibk_k7", "Ibk_k9", "pls_ncomp1", "pls_ncomp2", "simpls_ncomp1", 
-  "simpls_ncomp2", "gcvEarth_d1", "gcvEarth_d2", "gcvEarth_d3", "RandomClass_A", "RandomClass_B", "RandomClass_C",
-  "MajorityClass", "MinorityClass", "OptimalClass","PessimalClass")
-}
-```
+| Family                         | ID            | Technique                                                 | Packages                     | Tuning Parameters                                     | #models |
+|--------------------------------|---------------|-----------------------------------------------------------|------------------------------|-------------------------------------------------------|---------|
+| Decision Trees                 | C5.0          | C5.0                                                      | C50, plyr                    | winnow                                                | 2       |
+|                                | J48           | J48                                                       | RWeka                        | Unprunned                                             | 2       |
+|                                | LMT           | Logistic Model Trees                                      | RWeka                        | C, A                                                  | 4       |
+|                                | rpart         | CART                                                      | rpart                        |                                                       | 1       |
+|                                | ctree         | Conditional Inference Tree                                | party                        | mincriterion                                          | 3       |
+| Rule-based methods             | jRip          | Rule-Based Classifier                                     | RWeka                        | E                                                     | 2       |
+|                                | PART          | PART decision lists                                       | rpart                        |                                                       | 1       |
+| Discriminant analysis          | sda           | Shrinkage Discriminant Analysis                           | sda                          | diagonal, lambda                                      | 3       |
+|                                | fda           | Flexible Discriminant Analysis                            | earth, mda                   | degree, nprune                                        | 3       |
+|                                | mda           | Mixture Discriminant Analysis                             | mda                          | subclasses                                            | 3       |
+| Bayesian                       | NB            | Naive Bayes                                               | RWeka                        |                                                       | 1       |
+|                                | naiveBayes    | Naive Bayes                                               | e1071                        | laplace                                               | 1       |
+| Neural Networks                | rbf           | Radial Basis Function Network                             | RSNNS                        | negativeThreshold                                     | 1       |
+|                                | mlp           | Multi-Layer Perceptron                                    | RSNNS                        | size                                                  | 5       |
+|                                | avNNet        | Model Averaged Neural Network                             | nnet                         | size, decay, bag                                      | 3       |
+|                                | pcaNNet       | Neural Networks with Feature Extraction                   | nnet                         | size, decay                                           | 1       |
+|                                | lvq           | Learning Vector Quantization                              | class                        | size, k                                               | 3       |
+| Support Vector Machines        | SMO           | Sequential Minimal Optimization                           | RWeka                        |                                                       | 1       |
+|                                | svmRadialCost | Support Vector Machines with Radial Basis Function Kernel | kernlab                      | C                                                     | 4       |
+|                                | svmLinear     | Support Vector Machines with Linear Kernel                | kernlab                      | C                                                     | 6       |
+|                                | svmPoly       | Support Vector Machines with Polynomial Kernel            | kernlab                      | degree, scale, C                                      | 9       |
+|                                | gbm           | Stochastic Gradient Boosting                              | gbm, plyr                    | n.trees, interaction.depth, shrinkage, n.minobsinnode | 9       |
+| Bagging                        | treebag       | Bagged CART                                               | ipred, plyr, e1071           |                                                       | 1       |
+|                                | bagFDA        | Bagged Flexible Discriminant Analysis                     | earth, mda                   | degree, nprune                                        | 4       |
+| Random Forests                 | rf            | Random Forest                                             | randomForest                 | mtry                                                  | 7       |
+|                                | RRF           | Regularized Random Forest                                 | randomForest, RRF            | mtry                                                  | 7       |
+|                                | cforest       | Conditional Inference Random Forest                       | party                        | mtry                                                  | 7       |
+|                                | parRF         | Parallel Random Forest                                    | e1071, randomForest, foreach | mtry                                                  | 7       |
+| Nearest neighbor methods       | knn           | k-Nearest Neighbors                                       |                              | k                                                     | 6       |
+|                                | IBk           | k-Nearest Neighbors                                       | RWeka                        | K                                                     | 6       |
+| Partial least squares          | pls           | Partial Least Squares                                     | pls                          | ncomp                                                 | 2       |
+|                                | simpls        | Partial Least Squares                                     | pls                          | ncomp                                                 | 2       |
+| Principal component regression | gcvEarth      | Multivariate Adaptive Regression Splines                  | earth                        | degree                                                | 3       |
+| Base Lines                     | OptimalClass  | Optimal Classifier                                        |                              |                                                       | 1       |
+|                                | PessimalClass | Pessimal Classifier                                       |                              |                                                       | 1       |
+|                                | MajorityClass | Majority Classifier                                       |                              |                                                       | 1       |
+|                                | MinorityClass | Minority Classifier                                       |                              |                                                       | 1       |
+|                                | RandomClass   | Random Classifier                                         |                              |                                                       | 3       |
+|                                |               |                                                           |                              |                                                       |         |
+|                                |               |                                                           |                              |                                                       |         |
 
 ##  Set of Datasets (UCI repository)
 
