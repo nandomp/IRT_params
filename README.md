@@ -53,8 +53,7 @@
 |                                | MajorityClass | Majority Classifier                                       |                              |                                                       | 1       |
 |                                | MinorityClass | Minority Classifier                                       |                              |                                                       | 1       |
 |                                | RandomClass   | Random Classifier                                         |                              |                                                       | 3       |
-|                                |               |                                                           |                              |                                                       |         |
-|                                |               |                                                           |                              |                                                       |         |
+
 
 ##  Set of Datasets (UCI repository)
 
